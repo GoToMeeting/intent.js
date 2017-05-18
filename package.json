@@ -1,0 +1,84 @@
+{
+  "name": "intentjs.js",
+  "version": "1.0.0",
+  "description": "intent.js is a inversion of control framework for Javascript",
+  "main": "index.js",
+  "author": "Sven Hecht <sven.hecht@gmail.com>",
+  "license": "MIT",
+  "repository": "git@github.com:GoToMeeting/intent.js.git",
+  "engines": {
+    "node": ">=6.10.3"
+  },
+  "pre-push": [
+    "test"
+  ],
+  "scripts": {
+    "lint": "esw --ext .js,.jsx",
+    "lint:watch": "esw -w --ext .js",
+    "test": "jest",
+    "test:watch": "jest -- --watch",
+    "flow:coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text -o flow-coverage",
+    "flow:coverage:json": "flow-coverage-report -i 'src/**/*.js' -t json -o flow-coverage",
+    "start": "npm run test:watch",
+    "build": "rollup -c",
+    "prepublish": "npm run build",
+    "codecov": "codecov"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "roots": [
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "coverageReporters": [
+      "text",
+      "text-summary",
+      "cobertura",
+      "lcov"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/setup-jest-env.js"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/setup-jest-env.js",
+    "verbose": true,
+    "collectCoverage": true
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-es2017": "^6.22.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "codecov": "^2.2.0",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-watch": "^3.1.0",
+    "flow-bin": "^0.46.0",
+    "jasmine-reporters": "^2.2.1",
+    "jest": "20.0.3",
+    "jest-cli": "^20.0.3",
+    "pre-push": "^0.1.1",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "flow-coverage-report": "^0.3.0",
+    "flow-typed": "^2.1.2"
+  }
+}

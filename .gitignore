@@ -1,0 +1,13 @@
+*.log
+node_modules/
+dist/
+coverage/
+test-results/
+flow-coverage/
+
+# Text Editor Files
+*.swp
+*.swo
+.vscode/
+.idea/
+
