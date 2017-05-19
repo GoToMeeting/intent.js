@@ -1,6 +1,6 @@
 {
   "name": "intent.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "intent.js is a inversion of control framework for Javascript",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.es",
