@@ -1,8 +1,10 @@
 {
-  "name": "intentjs.js",
-  "version": "1.0.0",
+  "name": "intent.js",
+  "version": "1.0.1",
   "description": "intent.js is a inversion of control framework for Javascript",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "jsnext:main": "dist/index.es",
+  "module": "dist/index.es",
   "author": "Sven Hecht <sven.hecht@gmail.com>",
   "license": "MIT",
   "repository": "git@github.com:GoToMeeting/intent.js.git",
@@ -10,18 +12,19 @@
     "node": ">=6.10.3"
   },
   "pre-push": [
-    "test"
+    "validate"
   ],
   "scripts": {
-    "lint": "esw --ext .js,.jsx",
+    "validate": "esw --ext .js && jest",
+    "lint": "esw --ext .js",
     "lint:watch": "esw -w --ext .js",
     "test": "jest",
     "test:watch": "jest -- --watch",
     "flow:coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text -o flow-coverage",
     "flow:coverage:json": "flow-coverage-report -i 'src/**/*.js' -t json -o flow-coverage",
-    "start": "npm run test:watch",
+    "start": "yarn run test:watch",
     "build": "rollup -c",
-    "prepublish": "npm run build",
+    "prepublish": "yarn run build",
     "codecov": "codecov"
   },
   "jest": {
@@ -53,8 +56,7 @@
     "verbose": true,
     "collectCoverage": true
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.14.0",
@@ -71,14 +73,14 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-watch": "^3.1.0",
     "flow-bin": "^0.46.0",
+    "flow-coverage-report": "^0.3.0",
+    "flow-typed": "^2.1.2",
     "jasmine-reporters": "^2.2.1",
     "jest": "20.0.3",
     "jest-cli": "^20.0.3",
     "pre-push": "^0.1.1",
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "flow-coverage-report": "^0.3.0",
-    "flow-typed": "^2.1.2"
+    "rollup-plugin-node-resolve": "^3.0.0"
   }
 }

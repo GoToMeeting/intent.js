@@ -7,6 +7,8 @@ machine:
     JUNIT_REPORT_NAME: test-results.xml
 
 dependencies:
+  pre:
+    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
   override:
     - yarn
   cache_directories:
@@ -22,3 +24,9 @@ test:
     - yarn test
   post:
     - yarn codecov
+
+deployment:
+  npm:
+    tag: /v[0-9]+(\.[0-9]+)*/
+    commands:
+      - npm publish

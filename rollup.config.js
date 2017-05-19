@@ -3,10 +3,6 @@ import babel from 'rollup-plugin-babel';
 
 export default {
   entry: 'index.js',
-  format: 'umd',
-  exports: 'named',
-  dest: 'dist/bundle.js',
-  moduleName: 'intent',
   plugins: [
     resolve(),
     babel({
@@ -14,5 +10,17 @@ export default {
       presets: ['es2015-rollup', 'es2016', 'es2017', 'stage-0']
     })
   ],
-  sourceMap: true
+  targets: [
+    {
+      dest: 'dist/index.js',
+      format: 'umd',
+      moduleName: 'intent.js',
+      sourceMap: true
+    },
+    {
+      dest: 'dist/index.es',
+      format: 'es',
+      sourceMap: true
+    }
+  ]
 };
