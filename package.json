@@ -1,5 +1,5 @@
 {
-  "name": "intentjs.js",
+  "name": "intent.js",
   "version": "1.0.0",
   "description": "intent.js is a inversion of control framework for Javascript",
   "main": "index.js",
