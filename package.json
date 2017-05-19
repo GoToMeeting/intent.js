@@ -1,11 +1,15 @@
 {
   "name": "intent.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "intent.js is a inversion of control framework for Javascript",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.es",
   "module": "dist/index.es",
-  "contributors": ["Sven Hecht <sven.hecht@gmail.com>", "Yalcin Kilic", "Philipp Henkel"],
+  "contributors": [
+    "Sven Hecht <sven.hecht@gmail.com>",
+    "Yalcin Kilic",
+    "Philipp Henkel"
+  ],
   "license": "MIT",
   "repository": "git@github.com:GoToMeeting/intent.js.git",
   "engines": {
