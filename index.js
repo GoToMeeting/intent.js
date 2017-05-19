@@ -1,4 +1,4 @@
-import Intent from './src/intent';
+import ActivityRegistry from './src/activity-registry';
 
 
-export default { Intent };
+export default { ActivityRegistry };

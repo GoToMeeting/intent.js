@@ -34,7 +34,7 @@
     "lint": "esw --ext .js",
     "lint:watch": "esw -w --ext .js",
     "test": "jest",
-    "test:watch": "jest -- --watch",
+    "test:watch": "jest --watch",
     "flow:coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text -o flow-coverage",
     "flow:coverage:json": "flow-coverage-report -i 'src/**/*.js' -t json -o flow-coverage",
     "start": "yarn run test:watch",
