@@ -5,12 +5,23 @@
   "main": "dist/index.js",
   "jsnext:main": "dist/index.es",
   "module": "dist/index.es",
-  "author": "Sven Hecht <sven.hecht@gmail.com>",
+  "contributors": ["Sven Hecht <sven.hecht@gmail.com>", "Yalcin Kilic", "Philipp Henkel"],
   "license": "MIT",
   "repository": "git@github.com:GoToMeeting/intent.js.git",
   "engines": {
     "node": ">=6.10.3"
   },
+  "bugs": {
+    "url": "https://github.com/GoToMeeting/intent.js/issues"
+  },
+  "keywords": [
+    "inversionOfControl"
+  ],
+  "files": [
+    "src",
+    "index.js",
+    "dist"
+  ],
   "pre-push": [
     "validate"
   ],
