@@ -1,8 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 
-const pkg = require('./package.json');
-
 export default {
   entry: 'index.js',
   plugins: [
@@ -14,13 +12,13 @@ export default {
   ],
   targets: [
     {
-      dest: pkg.main,
+      dest: 'dist/index.js',
       format: 'umd',
       moduleName: 'intent.js',
       sourceMap: true
     },
     {
-      dest: pkg.module,
+      dest: 'dist/index.es',
       format: 'es',
       sourceMap: true
     }
