@@ -63,7 +63,7 @@ describe('The ActivityRegistry', () => {
   });
 
   describe('by kind it finds', () => {
-    it('activities successfully', () => {
+    it('an activity successfully', () => {
       const activityRegistry = new ActivityRegistry();
 
       const activity/* : Activity */ = { kind: exampleActivityKind };
@@ -76,7 +76,24 @@ describe('The ActivityRegistry', () => {
       expect(actualActivities[0]).toBe(activity);
     });
 
-    it('no activity with empty kind argument', () => {
+    it('multiple activities successfully', () => {
+      const activityRegistry = new ActivityRegistry();
+
+      const activity1/* : Activity */ = { kind: exampleActivityKind };
+      activityRegistry.registerActivity(activity1);
+
+      const activity2/* : Activity */ = { kind: exampleActivityKind };
+      activityRegistry.registerActivity(activity2);
+
+      const actualActivities = activityRegistry.findByKind(exampleActivityKind);
+
+      expect(actualActivities).toBeDefined();
+      expect(actualActivities.length).toBe(2);
+      expect(actualActivities[0]).toBe(activity1);
+      expect(actualActivities[1]).toBe(activity2);
+    });
+
+    it('no activities with empty kind argument', () => {
       const activityRegistry = new ActivityRegistry();
 
       const actualActivities = activityRegistry.findByKind(exampleActivityKind);
@@ -86,8 +103,8 @@ describe('The ActivityRegistry', () => {
     });
   });
 
-  describe('by mime type it find', () => {
-    it('activities successfully', () => {
+  describe('by mime type it finds', () => {
+    it('an activity successfully', () => {
       const activityRegistry = new ActivityRegistry();
 
       const mimeType = 'text/plain';
@@ -97,13 +114,63 @@ describe('The ActivityRegistry', () => {
 
       const actualActivities = activityRegistry.findByMimeType(mimeType);
 
+      expect(actualActivities).toBeDefined();
       expect(actualActivities.length).toBe(1);
+      expect(actualActivities[0]).toBe(activity);
     });
 
-    it('no activity with empty mime type argument', () => {
+    it('multiple activities successfully', () => {
+      const activityRegistry = new ActivityRegistry();
+
+      const mimeType = 'text/plain';
+
+      const activity1/* : Activity */ = { kind: exampleActivityKind, mimeType };
+      activityRegistry.registerActivity(activity1);
+
+      const activity2/* : Activity */ = { kind: exampleActivityKind, mimeType };
+      activityRegistry.registerActivity(activity2);
+
+      const actualActivities = activityRegistry.findByMimeType(mimeType);
+
+      expect(actualActivities).toBeDefined();
+      expect(actualActivities.length).toBe(2);
+      expect(actualActivities[0]).toBe(activity1);
+      expect(actualActivities[1]).toBe(activity2);
+    });
+
+    it('no activities if none are registered', () => {
       const activityRegistry = new ActivityRegistry();
 
       const actualActivities = activityRegistry.findByMimeType(exampleActivityKind);
+
+      expect(actualActivities).toBeDefined();
+      expect(actualActivities.length).toBe(0);
+    });
+
+    it('no activities with empty mime type argument', () => {
+      const activityRegistry = new ActivityRegistry();
+
+      const mimeType = 'text/plain';
+
+      const activity/* : Activity */ = { kind: exampleActivityKind, mimeType };
+      activityRegistry.registerActivity(activity);
+
+
+      const actualActivities = activityRegistry.findByMimeType('');
+
+      expect(actualActivities).toBeDefined();
+      expect(actualActivities.length).toBe(0);
+    });
+
+    it('no activities if none have the queried mime type', () => {
+      const activityRegistry = new ActivityRegistry();
+
+      const mimeType = 'text/plain';
+
+      const activity/* : Activity */ = { kind: exampleActivityKind, mimeType };
+      activityRegistry.registerActivity(activity);
+
+      const actualActivities = activityRegistry.findByMimeType('application/json');
 
       expect(actualActivities).toBeDefined();
       expect(actualActivities.length).toBe(0);
